@@ -66,4 +66,6 @@ type Store interface {
 	HasStreamRule(streamID, streamRuleID string) (bool, error)
 
 	GetAlertConditions() ([]graylog.AlertCondition, int, error)
+
+	GetAlerts(since, limit int) ([]graylog.Alert, int, error)
 }

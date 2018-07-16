@@ -1,8 +1,9 @@
+package graylog
+
 // I can't understand the reason but it is failed to run "gometalinter ./..." travis ci
 // index_set.go:1::warning: file is not goimported (goimports)
 // index_set.go:1::warning: file is not gofmted with -s (gofmt)
 // nolint: goimports, gofmt
-package graylog
 
 import (
 	"time"

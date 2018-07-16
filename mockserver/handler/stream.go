@@ -32,8 +32,11 @@ func HandleGetStream(
 ) (interface{}, int, error) {
 	// GET /streams/{streamID} Get a single stream
 	id := ps.ByName("streamID")
-	if id == "enabled" {
+	switch id {
+	case "enabled":
 		return HandleGetEnabledStreams(user, lgc, w, r, ps)
+	case "alerts":
+		return HandleGetAlerts(user, lgc, w, r, ps)
 	}
 	if sc, err := lgc.Authorize(user, "streams:read", id); err != nil {
 		return nil, sc, err
